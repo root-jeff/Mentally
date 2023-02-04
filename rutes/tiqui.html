@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>TicTacToe</title>
+    <link rel="stylesheet" href="/css/che.css" />
+  </head>
+  <body>
+    <!-- partial:index.partial.html -->
+    <svg xmlns="http://www.w3.org/2000/svg" height="0" width="0">
+      <defs>
+        <clippath id="a">
+          <path
+            d="M23.908 76.467V23.783l59.105-.826-18.33 18.388-1.625 16.185 20.257 19.935z"
+          ></path>
+        </clippath>
+      </defs>
+      <symbol id="circ" viewBox="0 0 100 100">
+        <circle r="35" cy="50" cx="50" fill="none"></circle>
+      </symbol>
+      <symbol id="cross" viewBox="0 0 100 100">
+        <path
+          d="M25.314 25.314l49.498 49.498-.124-49.5-49.624 49.624"
+          clip-path="url(#a)"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></path>
+      </symbol>
+    </svg>
+    <main>
+      <div class="notification selection">
+        <svg class="X">
+          <use xlink:href="#cross"></use>
+        </svg>
+        <svg
+          class="tie"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 100 100"
+        >
+          <defs>
+            <pattern
+              id="pb"
+              patterntransform="scale(-.1145 .1145) rotate(15 2375.484 -10757.443)"
+              xlink:href="#pa"
+            ></pattern>
+            <pattern
+              id="pa"
+              patterntransform="rotate(15 -3431.262 -230.574) scale(.3)"
+              height="70"
+              width="50"
+              patternunits="userSpaceOnUse"
+            >
+              <path
+                fill="currentColor"
+                fill-rule="evenodd"
+                d="M0 35h54v35H0z"
+              ></path>
+            </pattern>
+          </defs>
+          <path
+            d="M60.81 977.146L50 987.934l-10.527-10.788-10.145 54.344 20.687 18.6 22.37-18.456z"
+            fill="url(#pa)"
+            fill-rule="evenodd"
+            transform="translate(0 -950)"
+          ></path>
+          <path
+            d="M49.808 1.99l12.255 4.577 3.488 8.591-15.477 14.324-15.562-14.54 2.245-7.595z"
+            fill="url(#pb)"
+            fill-rule="evenodd"
+          ></path>
+        </svg>
+        <svg class="O">
+          <use xlink:href="#circ"></use>
+        </svg>
+        <p class="txt">Escoja un jugador</p>
+      </div>
+      <div class="board" style="pointer-events: none">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+      </div>
+      <label class="easymode">
+        <input id="easymode" type="checkbox" /><span
+          >let me win sometimes
+        </span>
+      </label>
+    </main>
+    <!-- partial -->
+    <script src="/js/bolud.js"></script>
+  </body>
+</html>

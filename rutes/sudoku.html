@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dynamic Sudoku</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/css/pam.css" />
+  </head>
+  <body>
+    <!-- partial:index.partial.html -->
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <p>
+            <button class="btn btn-default" id="pause">Pausar</button>
+            <button class="btn btn-info" id="resume">Volver</button>
+            <button class="btn btn-danger" id="restart">Reiniciar</button>
+          </p>
+          <p class="time">
+            <span class="minutes">0</span>
+            <span class="colon">:</span>
+            <span class="seconds">00</span>
+          </p>
+          <div class="adjust">
+            <span>Facil</span>
+            <input class="difficulty" max="7" min="1" type="range" value="4" />
+            <span>Dificil</span>
+          </div>
+          <p>
+            <button class="btn btn-success" id="solve">Resolver</button>
+            <button class="btn btn-primary" id="new">Nuevo</button>
+          </p>
+        </div>
+      </div>
+      <div class="sudoku">
+        <div class="s-row">
+          <div class="square">
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+          </div>
+          <div class="square">
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+          </div>
+          <div class="square">
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+          </div>
+        </div>
+        <div class="s-row">
+          <div class="square">
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+          </div>
+          <div class="square">
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+          </div>
+          <div class="square">
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+          </div>
+        </div>
+        <div class="s-row">
+          <div class="square">
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+          </div>
+          <div class="square">
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+          </div>
+          <div class="square">
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+            <div class="cell">
+              <span class="label">1</span>
+              <span class="value"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="numbers-bar">
+            <div class="number">1</div>
+            <div class="number">2</div>
+            <div class="number">3</div>
+            <div class="number">4</div>
+            <div class="number">5</div>
+            <div class="number">6</div>
+            <div class="number">7</div>
+            <div class="number">8</div>
+            <div class="number">9</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- partial -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/js/plinas.js"></script>
+  </body>
+</html>
